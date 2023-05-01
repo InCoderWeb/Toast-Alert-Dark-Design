@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- ----------------- Created By Incoder ----------------- -->
+        <meta charset="utf-8">
+            <meta content="width=device-width, initial-scale=1.0" name="viewport">
+                <title>
+                    Toast Alert - InCoderWeb
+                </title>
+                <link href="main.css" rel="stylesheet"/>
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+            </meta>
+        </meta>
+    </head>
+    <body>
+        <div class="mainToastContainer">
+            <div class="toastWrapper success">
+                <div class="icon">
+                    <i class="fa-solid fa-circle-check">
+                    </i>
+                </div>
+                <div class="alertData">
+                    <h4>
+                        Success Alert
+                    </h4>
+                    <p>
+                        Login Successfully Compeleted
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button class="alertBtn bg-success" id="successAlert">
+            Show Success Alert
+        </button>
+        <button class="alertBtn bg-danger" id="dangerAlert">
+            Show Error Alert
+        </button>
+        <script>
+            let mainToastContainer = document.querySelector(".mainToastContainer")
+        	successAlert = document.querySelector("#successAlert")
+        	dangerAlert = document.querySelector("#dangerAlert")
+
+        	const showAlert = (type) => {
+		    	if(!mainToastContainer.classList.contains("show")){
+
+			    	if(type == "success"){
+			    			mainToastContainer.innerHTML = `<div class="toastWrapper ${type}">
+				            <div class="icon">
+				                <i class="fa-solid fa-circle-check">
+				                </i>
+				            </div>
+				            <div class="alertData">
+				                <h4>
+				                    Success Alert
+				                </h4>
+				                <p>
+				                    Login Successfully Compeleted
+				                </p>
+				            </div>
+				        </div>`
+			    		console.log(type)
+			    	} else{
+			    		mainToastContainer.innerHTML = `<div class="toastWrapper ${type}">
+			            <div class="icon">
+			                <i class="fa-solid fa-circle-xmark">
+			                </i>
+			            </div>
+			            <div class="alertData">
+			                <h4>
+			                    Error Alert
+			                </h4>
+			                <p>
+			                    Login failed due to incorrect username or password
+			                </p>
+			            </div>
+			        </div>`
+			    	}
+			    	mainToastContainer.classList.add("show")
+			    	setTimeout(() => {
+			    		mainToastContainer.classList.remove("show")
+			    	}, 2500)
+			    } else{
+			    	mainToastContainer.classList.remove("show")
+			    }
+		    }
+
+        	successAlert.addEventListener("click", () => {
+        		showAlert('success')
+        	})
+
+        	dangerAlert.addEventListener("click", () => {
+        		showAlert('danger')
+        	})
+        </script>
+    </body>
+</html>

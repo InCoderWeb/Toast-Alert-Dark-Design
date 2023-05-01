@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Amaranth", sans-serif;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: #110526;
+    justify-content: center;
+}
+.mainToastContainer {
+    top: 1rem;
+    right: -25rem;
+    position: fixed;
+    transition: right .6s cubic-bezier(0.25, 0.1, 0.15, 1.42);
+}
+.mainToastContainer.show {
+    right: 1rem;
+}
+.toastWrapper {
+    width: 20rem;
+    height: 5rem;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    margin-block: .8rem;
+    border-radius: .5rem;
+    background: rgb(255 255 255 / 8%);
+}
+.toastWrapper::before {
+    top: 0;
+    left: -45rem;
+    width: 52rem;
+    content: "";
+    height: 100%;
+    position: absolute;
+}
+.toastWrapper.success::before {
+    background: linear-gradient(to right, rgb(43 198 111 / 80%) 25%, transparent);
+}
+.toastWrapper.danger::before {
+    background: linear-gradient(to right, rgb(226 45 59 / 80%) 25%, transparent);
+}
+.toastWrapper.success .icon {
+    color: rgb(43 198 111)
+}
+.toastWrapper.success h4 {
+    font-size: 1rem;
+    color: rgb(43 198 111)
+}
+.toastWrapper.danger .icon {
+    color: rgb(226 45 59)
+}
+.toastWrapper.danger h4 {
+    font-size: 1rem;
+    color: rgb(226 45 59)
+}
+.toastWrapper p {
+    font-size: .79rem;
+    margin-top: .2rem;
+    color: rgb(255 255 255 / 50%)
+}
+.toastWrapper .icon {
+    font-size: 1.4rem;
+    margin-right: 1rem;
+    margin-left: 1.5rem;
+}
+.alertBtn {
+    height: 2.5rem;
+    cursor: pointer;
+    font-weight: 550;
+    padding: 0rem 1rem;
+    letter-spacing: 1px;
+    border-radius: .5rem;
+    margin-right: 1rem;
+    background: transparent;
+    transition: all .3s ease;
+}
+.alertBtn:hover {
+    color: #ffffff;
+}
+.bg-success {
+    color: rgb(43 198 111 / 80%);
+    border: 2px solid rgb(43 198 111 / 80%);
+}
+.alertBtn.bg-success:hover {
+    background: rgb(43 198 111 / 80%);
+}
+.alertBtn.bg-danger:hover {
+    background: rgb(226 45 59 / 80%);
+}
+.bg-danger {
+    color: rgb(226 45 59 / 80%);
+    border: 2px solid rgb(226 45 59 / 80%);
+}
